@@ -52,7 +52,7 @@ outputName=str(input("ENTER NAME OF DESIRED OUTPUT VIDEO TO BE GENEATED: "))
 outputName=videoNewLoc+'\\'+outputName+'.mp4'
 reader = imageio.get_reader(videoName) 
 fps = reader.get_meta_data()['fps'] # get the fps frequence 
-writer = imageio.get_writer('output.mp4', fps = fps) # create output video with this same fps frequence
+writer = imageio.get_writer(outputName, fps = fps) # create output video with this same fps frequence
 for i, frame in enumerate(reader): # iterate on the frames of the output video
     frame = detect(frame, net.eval(), transform) 
     writer.append_data(frame) # add the next frame in the output video.
