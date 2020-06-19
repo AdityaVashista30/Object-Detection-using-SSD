@@ -47,6 +47,9 @@ transform = BaseTransform(net.size, (104/256.0, 117/256.0, 123/256.0)) #pre spec
 
 # Doing some Object Detection on a video
 videoName=str(input("ENTER VIDEO LOCATION TO BE ANALYSED: "))
+videoNewLoc=str(input("ENTER LOCATION WHERE NEW VIDEO HAS TO BE SAVED: "))
+outputName=str(input("ENTER NAME OF DESIRED OUTPUT VIDEO TO BE GENEATED: "))
+outputName=videoNewLoc+'\\'+outputName+'.mp4'
 reader = imageio.get_reader(videoName) 
 fps = reader.get_meta_data()['fps'] # get the fps frequence 
 writer = imageio.get_writer('output.mp4', fps = fps) # create output video with this same fps frequence
