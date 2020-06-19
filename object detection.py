@@ -49,7 +49,7 @@ transform = BaseTransform(net.size, (104/256.0, 117/256.0, 123/256.0)) #pre spec
 videoName=str(input("ENTER VIDEO LOCATION TO BE ANALYSED: "))
 reader = imageio.get_reader(videoName) 
 fps = reader.get_meta_data()['fps'] # get the fps frequence 
-writer = imageio.get_writer('output2.mp4', fps = fps) # create output video with this same fps frequence
+writer = imageio.get_writer('output.mp4', fps = fps) # create output video with this same fps frequence
 for i, frame in enumerate(reader): # iterate on the frames of the output video
     frame = detect(frame, net.eval(), transform) 
     writer.append_data(frame) # add the next frame in the output video.
